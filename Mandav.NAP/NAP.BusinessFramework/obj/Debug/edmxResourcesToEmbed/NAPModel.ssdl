@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NAPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="nchar" MaxLength="10" />
+    <Property Name="OrgId" Type="int" />
+  </EntityType>
+  <EntityType Name="inDesign">
+    <Key>
+      <PropertyRef Name="JobID" />
+    </Key>
+    <Property Name="JobID" Type="int" Nullable="false" />
+    <Property Name="AssignedTo" Type="int" />
+    <Property Name="DateStarted" Type="datetime" />
+    <Property Name="DateCompleted" Type="datetime" />
+    <Property Name="Completedby" Type="int" />
+  </EntityType>
+  <EntityType Name="inDispatch">
+    <Key>
+      <PropertyRef Name="JobID" />
+    </Key>
+    <Property Name="JobID" Type="int" Nullable="false" />
+    <Property Name="AssignedTo" Type="int" />
+    <Property Name="DateStarted" Type="datetime" />
+    <Property Name="DateCompleted" Type="datetime" />
+    <Property Name="Completedby" Type="int" />
+  </EntityType>
+  <EntityType Name="inPackaging">
+    <Key>
+      <PropertyRef Name="JobID" />
+    </Key>
+    <Property Name="JobID" Type="int" Nullable="false" />
+    <Property Name="AssignedTo" Type="int" />
+    <Property Name="DateStarted" Type="datetime" />
+    <Property Name="DateCompleted" Type="datetime" />
+    <Property Name="Completedby" Type="int" />
+  </EntityType>
+  <EntityType Name="inPayment">
+    <Key>
+      <PropertyRef Name="JobID" />
+    </Key>
+    <Property Name="JobID" Type="int" Nullable="false" />
+    <Property Name="AssignedTo" Type="int" />
+    <Property Name="DateStarted" Type="datetime" />
+    <Property Name="DateCompleted" Type="datetime" />
+    <Property Name="Completedby" Type="int" />
+  </EntityType>
+  <EntityType Name="inPrinting">
+    <Key>
+      <PropertyRef Name="JobID" />
+    </Key>
+    <Property Name="JobID" Type="int" Nullable="false" />
+    <Property Name="AssignedTo" Type="int" />
+    <Property Name="DateStarted" Type="datetime" />
+    <Property Name="DateCompleted" Type="datetime" />
+    <Property Name="Completedby" Type="int" />
+  </EntityType>
+  <EntityType Name="JobDetailInfo">
+    <Key>
+      <PropertyRef Name="JobDetailInfoId" />
+    </Key>
+    <Property Name="JobDetailInfoId" Type="int" Nullable="false" />
+    <Property Name="DetailType" Type="nvarchar" MaxLength="50" />
+    <Property Name="JobDetailId" Type="int" />
+    <Property Name="Detail" Type="ntext" />
+    <Property Name="pic" Type="image" />
+  </EntityType>
+  <EntityType Name="JobDetails">
+    <Key>
+      <PropertyRef Name="JobDetailId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="JobDetailId" Type="int" Nullable="false" />
+    <Property Name="Particular" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="Price" Type="int" />
+    <Property Name="ETA" Type="datetime" />
+    <Property Name="JobTypeId" Type="int" />
+    <Property Name="CreateBy" Type="int" />
+    <Property Name="Size" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="JobType">
+    <Key>
+      <PropertyRef Name="JobTypeId" />
+    </Key>
+    <Property Name="JobTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JobTypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_inDesign_JobDetails">
+    <End Role="JobDetails" Type="Self.JobDetails" Multiplicity="1" />
+    <End Role="inDesign" Type="Self.inDesign" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="JobDetails">
+        <PropertyRef Name="JobDetailId" />
+      </Principal>
+      <Dependent Role="inDesign">
+        <PropertyRef Name="JobID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inDispatch_JobDetails">
+    <End Role="JobDetails" Type="Self.JobDetails" Multiplicity="1" />
+    <End Role="inDispatch" Type="Self.inDispatch" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="JobDetails">
+        <PropertyRef Name="JobDetailId" />
+      </Principal>
+      <Dependent Role="inDispatch">
+        <PropertyRef Name="JobID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inPackaging_JobDetails">
+    <End Role="JobDetails" Type="Self.JobDetails" Multiplicity="1" />
+    <End Role="inPackaging" Type="Self.inPackaging" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="JobDetails">
+        <PropertyRef Name="JobDetailId" />
+      </Principal>
+      <Dependent Role="inPackaging">
+        <PropertyRef Name="JobID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inPayment_JobDetails">
+    <End Role="JobDetails" Type="Self.JobDetails" Multiplicity="1" />
+    <End Role="inPayment" Type="Self.inPayment" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="JobDetails">
+        <PropertyRef Name="JobDetailId" />
+      </Principal>
+      <Dependent Role="inPayment">
+        <PropertyRef Name="JobID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inPrinting_JobDetails">
+    <End Role="JobDetails" Type="Self.JobDetails" Multiplicity="1" />
+    <End Role="inPrinting" Type="Self.inPrinting" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="JobDetails">
+        <PropertyRef Name="JobDetailId" />
+      </Principal>
+      <Dependent Role="inPrinting">
+        <PropertyRef Name="JobID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobDetailInfo_JobDetails">
+    <End Role="JobDetails" Type="Self.JobDetails" Multiplicity="1" />
+    <End Role="JobDetailInfo" Type="Self.JobDetailInfo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="JobDetails">
+        <PropertyRef Name="JobDetailId" />
+      </Principal>
+      <Dependent Role="JobDetailInfo">
+        <PropertyRef Name="JobDetailInfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobDetails_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="JobDetails" Type="Self.JobDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="JobDetails">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobDetails_JobType">
+    <End Role="JobType" Type="Self.JobType" Multiplicity="0..1" />
+    <End Role="JobDetails" Type="Self.JobDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobType">
+        <PropertyRef Name="JobTypeId" />
+      </Principal>
+      <Dependent Role="JobDetails">
+        <PropertyRef Name="JobTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobDetails_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="JobDetails" Type="Self.JobDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="JobDetails">
+        <PropertyRef Name="CreateBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NAPModelStoreContainer">
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inDesign" EntityType="Self.inDesign" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inDispatch" EntityType="Self.inDispatch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inPackaging" EntityType="Self.inPackaging" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inPayment" EntityType="Self.inPayment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inPrinting" EntityType="Self.inPrinting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobDetailInfo" EntityType="Self.JobDetailInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobDetails" EntityType="Self.JobDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobType" EntityType="Self.JobType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_inDesign_JobDetails" Association="Self.FK_inDesign_JobDetails">
+      <End Role="JobDetails" EntitySet="JobDetails" />
+      <End Role="inDesign" EntitySet="inDesign" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inDispatch_JobDetails" Association="Self.FK_inDispatch_JobDetails">
+      <End Role="JobDetails" EntitySet="JobDetails" />
+      <End Role="inDispatch" EntitySet="inDispatch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inPackaging_JobDetails" Association="Self.FK_inPackaging_JobDetails">
+      <End Role="JobDetails" EntitySet="JobDetails" />
+      <End Role="inPackaging" EntitySet="inPackaging" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inPayment_JobDetails" Association="Self.FK_inPayment_JobDetails">
+      <End Role="JobDetails" EntitySet="JobDetails" />
+      <End Role="inPayment" EntitySet="inPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inPrinting_JobDetails" Association="Self.FK_inPrinting_JobDetails">
+      <End Role="JobDetails" EntitySet="JobDetails" />
+      <End Role="inPrinting" EntitySet="inPrinting" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobDetailInfo_JobDetails" Association="Self.FK_JobDetailInfo_JobDetails">
+      <End Role="JobDetails" EntitySet="JobDetails" />
+      <End Role="JobDetailInfo" EntitySet="JobDetailInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobDetails_Customer" Association="Self.FK_JobDetails_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="JobDetails" EntitySet="JobDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobDetails_JobType" Association="Self.FK_JobDetails_JobType">
+      <End Role="JobType" EntitySet="JobType" />
+      <End Role="JobDetails" EntitySet="JobDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobDetails_User" Association="Self.FK_JobDetails_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="JobDetails" EntitySet="JobDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,10 @@
+c:\users\mahesh\documents\visual studio 2015\Projects\Mandav.NAP\NAP.BusinessFramework\bin\Debug\NAP.BusinessFramework.dll.config
+c:\users\mahesh\documents\visual studio 2015\Projects\Mandav.NAP\NAP.BusinessFramework\bin\Debug\NAP.BusinessFramework.dll
+c:\users\mahesh\documents\visual studio 2015\Projects\Mandav.NAP\NAP.BusinessFramework\bin\Debug\NAP.BusinessFramework.pdb
+c:\users\mahesh\documents\visual studio 2015\Projects\Mandav.NAP\NAP.BusinessFramework\bin\Debug\EntityFramework.dll
+c:\users\mahesh\documents\visual studio 2015\Projects\Mandav.NAP\NAP.BusinessFramework\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\mahesh\documents\visual studio 2015\Projects\Mandav.NAP\NAP.BusinessFramework\bin\Debug\EntityFramework.xml
+c:\users\mahesh\documents\visual studio 2015\Projects\Mandav.NAP\NAP.BusinessFramework\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\mahesh\documents\visual studio 2015\Projects\Mandav.NAP\NAP.BusinessFramework\obj\Debug\NAP.BusinessFramework.csprojResolveAssemblyReference.cache
+c:\users\mahesh\documents\visual studio 2015\Projects\Mandav.NAP\NAP.BusinessFramework\obj\Debug\NAP.BusinessFramework.dll
+c:\users\mahesh\documents\visual studio 2015\Projects\Mandav.NAP\NAP.BusinessFramework\obj\Debug\NAP.BusinessFramework.pdb

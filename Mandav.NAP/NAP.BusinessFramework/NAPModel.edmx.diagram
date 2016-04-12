@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f28abc522a184b28ba230857c6d64a21" Name="Diagram1">
+        <EntityTypeShape EntityType="NAPModel.Customer" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAPModel.inDesign" Width="1.5" PointX="2.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAPModel.inDispatch" Width="1.5" PointX="5.875" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAPModel.inPackaging" Width="1.5" PointX="6.125" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAPModel.inPayment" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAPModel.inPrinting" Width="1.5" PointX="5.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAPModel.JobDetailInfo" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAPModel.JobDetail" Width="1.5" PointX="3.375" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAPModel.JobType" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NAPModel.User" Width="1.5" PointX="0.5" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="NAPModel.FK_JobDetails_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="NAPModel.FK_inDesign_JobDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="NAPModel.FK_inDispatch_JobDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="NAPModel.FK_inPackaging_JobDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="NAPModel.FK_inPayment_JobDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="NAPModel.FK_inPrinting_JobDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="NAPModel.FK_JobDetailInfo_JobDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="NAPModel.FK_JobDetails_JobType" ManuallyRouted="false" />
+        <AssociationConnector Association="NAPModel.FK_JobDetails_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
